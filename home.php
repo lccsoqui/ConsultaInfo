@@ -4,11 +4,13 @@ session_start();
 require("config/conn.php");
 require('funciones/config.php');
 
+header('Access-Control-Allow-Origin: *');
 
 if(empty($_SESSION['id-usuario']) or !isset($_SESSION['login']) or $_SESSION['login'] != true){
 	session_destroy();
 	header("LOCATION: ../index.php?session=false");
-	}
+	exit();
+}
 /*DEFINIR EL ROOT*/
 define('URL', 'home/');
 
@@ -17,7 +19,7 @@ define('URL', 'home/');
 <html>
 <head>
 <meta charset="utf-8">
-<base href="http://localhost/consultaInfo/">
+<base href="/">
 <title>Consulta información de ciudadanos</title>
 <link rel="shortcut icon" href="logo2.ico">
 <meta http-equiv='cache-control' content='no-cache'>
@@ -40,7 +42,6 @@ define('URL', 'home/');
 	<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-    <?php header('Access-Control-Allow-Origin: *'); ?>
 </head>
 <body>
 <div class="contenedor">

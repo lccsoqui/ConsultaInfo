@@ -1,0 +1,22 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: consultainfo-web
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./logs:/var/log/apache2
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - consultainfo-network
+
+networks:
+  consultainfo-network:
+    driver: bridge

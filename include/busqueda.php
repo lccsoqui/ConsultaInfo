@@ -64,13 +64,13 @@ $params = array(
 			} 
 				$tr ="";
 				$cadena .= "<tr class='".$tr."'>";
-				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Nombre']))."</td>";
-				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Domicilio']))."</td>";
-				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Colonia']))."</td>";
-                $cadena .= "<td>".htmlspecialchars(strtoupper($row['Municipio']))."</td>";
-				$cadena .= "<td>".$row['TelParticular'].' '.$row['TelTrabajo'].' '.$row['TelCelular'].' '.$row['TelOtro']."</td>";
-				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Email']))."</td>";
-				$cadena .= "<td>".$row['Server']."<br/>".$row['BD']."<br/>".$row['Tabla']."</td>";
+			$cadena .= "<td>".htmlspecialchars(strtoupper($row['Nombre'] ?? ''))."</td>";
+			$cadena .= "<td>".htmlspecialchars(strtoupper($row['Domicilio'] ?? ''))."</td>";
+			$cadena .= "<td>".htmlspecialchars(strtoupper($row['Colonia'] ?? ''))."</td>";
+            $cadena .= "<td>".htmlspecialchars(strtoupper($row['Municipio'] ?? ''))."</td>";
+			$cadena .= "<td>".($row['TelParticular'] ?? '').' '.($row['TelTrabajo'] ?? '').' '.($row['TelCelular'] ?? '').' '.($row['TelOtro'] ?? '')."</td>";
+			$cadena .= "<td>".htmlspecialchars(strtoupper($row['Email'] ?? ''))."</td>";
+			$cadena .= "<td>".($row['Server'] ?? '')."<br/>".($row['BD'] ?? '')."<br/>".($row['Tabla'] ?? '')."</td>";
 				$cadena .= "</td>";
 				$cadena .= "</tr>";
 			$i++;			

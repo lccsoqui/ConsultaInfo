@@ -1,8 +1,8 @@
 Options +FollowSymLinks -MultiViews
 RewriteEngine On
-RewriteBase /consultaInfo/
+RewriteBase /
+# RewriteBase /consultaInfo/
 # RewriteBase /vitrum/
-# RewriteBase /
 
 
 RewriteRule ^home/?$ home.php [L,NC]
