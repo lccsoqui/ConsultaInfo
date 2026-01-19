@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "tu-obra-icons";
+  src:url("../fonts/tu-obra-icons.eot");
+  src:url("../fonts/tu-obra-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/tu-obra-icons.ttf") format("truetype"),
+    url("../fonts/tu-obra-icons.svg#tu-obra-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "tu-obra-icons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "tu-obra-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align:middle;
+  padding-bottom:3px;
+  padding-right:4px;
+}
+.icon-agregar:before {
+  content: "a";
+}
+.icon-cerrar:before {
+  content: "b";
+}
+.icon-home:before {
+  content: "c";
+}
+.icon-megaphone:before {
+  content: "d";
+}
+.icon-magnifying-glass:before {
+  content: "e";
+}
+.icon-loop:before {
+  content: "f";
+}
+.icon-thumbnails:before {
+  content: "g";
+}
+.icon-trash:before {
+  content: "h";
+}
+.icon-fontawesome-webfont:before {
+  content: "i";
+}
+.icon-fontawesome-webfont-1:before {
+  content: "j";
+}
+.icon-fontawesome-webfont-2:before {
+  content: "k";
+}
+.icon-level-up:before {
+  content: "l";
+}
+.icon-cloudapp:before {
+  content: "m";
+}
+.icon-editar:before {
+  content: "n";
+}
+.icon-fontawesome-webfont-4:before {
+  content: "o";
+  padding-bottom:8px;
+}
+.icon-fontawesome-webfont-5:before {
+  content: "p";
+}
+.icon-torso:before {
+  content: "q";
+}
+.icon-torso-business:before {
+  content: "r";
+}
+.icon-widget:before {
+  content: "s";
+}
+.icon-wrench:before {
+  content: "t";
+}
+.icon-usuarios:before {
+  content: "u";
+}
+.icon-torsos:before {
+  content: "v";
+}
+.icon-fotos:before {
+  content: "w";
+}
+.icon-address-book:before {
+  content: "x";
+}
+.icon-vcard:before {
+  content: "y";
+}
+.icon-graph-trend:before {
+  content: "z";
+}
+.icon-conveniosmodificatorios:before {
+  content: "A";
+}
+.icon-contratosdeobra:before {
+  content: "B";
+}
+.icon-fontawesome-webfont-6:before {
+  content: "C";
+  color:#3B5998;
+}
+.icon-fontawesome-webfont-7:before {
+  content: "D";
+  color:#0084b4;
+}
+.icon-print:before {
+  content: "E";
+}
+.icon-delete-uno:before {
+  content: "F";
+}
+.icon-expediente:before {
+  content: "G";
+}
+.icon-avances:before {
+  content: "H";
+}
+.icon-camera-1:before {
+  content: "I";
+}
+.icon-uas:before {
+  content: "J";
+}
+.icon-clipboard-pencil:before {
+  content: "K";
+}
+.icon-fontawesome-webfont-3:before {
+  content: "L";
+}
+.icon-fontawesome-webfont-8:before {
+  content: "M";
+}
+.icon-help-circled:before {
+  content: "N";
+}
+.icon-fontawesome-webfont-9:before {
+  content: "O";
+}
+.icon-fontawesome-webfont-6, .icon-fontawesome-webfont-7{font-size:22px;}
