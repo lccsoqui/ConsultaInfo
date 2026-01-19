@@ -1,4 +1,5 @@
 <?php
+session_name('pi-login');
 session_start();
 require('../funciones/query.class.inc.php');
 require("../sources/msg-file.php");
@@ -8,6 +9,7 @@ include("../config/conn.php");
 if(empty($_SESSION['id-usuario']) or !isset($_SESSION['login']) or $_SESSION['login'] != true){
 	session_destroy();
 	header("LOCATION: ../index.php?session=false");
+	
 	}
 /*
 foreach($_POST as $nombre_campo => $valor){
@@ -24,23 +26,22 @@ ini_set("max_execution_time", 300);
 set_time_limit(0);
 
 $myparams['Nombre'] = $_POST['Nombre'];
-$myparams['Paterno'] = $_POST['Paterno'];
-$myparams['Materno'] = $_POST['Materno'];
-$myparams['Curp'] = $_POST['Curp'];
-
 
 $params = array(
-	  array($myparams['Nombre'], SQLSRV_PARAM_IN),
-	  array($myparams['Paterno'], SQLSRV_PARAM_IN),
-	  array($myparams['Materno'], SQLSRV_PARAM_IN),
-	  array($myparams['Curp'], SQLSRV_PARAM_IN)
+	  array($myparams['Nombre'], SQLSRV_PARAM_IN)
 	  );
 
-	$callSP = "{call SP_BusquedaRC(?,?,?,?)}";
+	$callSP = "{call BuscaCiudadano(?)}";
 	$stmt = sqlsrv_query( $connSI, $callSP, $params);
 	if( $stmt === false )
 	{
 		echo "Error in executing statement 3.\n";
+		echo "Stored procedure: BuscaCiudadano\n";
+		echo "This error typically means the PostgreSQL linked server 'postgres-3.17' is not properly configured.\n";
+		echo "Please contact your database administrator to:\n";
+		echo "1. Verify the linked server exists: EXEC sp_linkedservers;\n";
+		echo "2. Test the connection: EXEC sp_testlinkedserver N'postgres-3.17';\n";
+		echo "3. Reconfigure ODBC connection if needed.\n\n";
 		die( print_r( sqlsrv_errors(), true));
 	}
     $cadena = "";
@@ -52,23 +53,24 @@ $params = array(
 				$cadena .= "<thead>";
 				$cadena .= "<tr>";
 				$cadena .= "<th>Nombre</th>";
-                $cadena .= "<th>Paterno</th>";
-                $cadena .= "<th>Materno</th>";
-                $cadena .= "<th>Nacimiento</th>";
-                $cadena .= "<th>Defunción</th>";
-                $cadena .= "<th>Curp</th>";
+				$cadena .= "<th>Domicilio</th>";
+                $cadena .= "<th>Colonia</th>";
+                $cadena .= "<th>Municipio</th>";
+				$cadena .= "<th>Teléfonos</th>";
+				$cadena .= "<th>EMail</th>";
+				$cadena .= "<th>BD</th>";
                 $cadena .= "</tr>";
-				$cadena .= "</thead><tbody>";
-				/*extraer los resultados*/	
-			}
+				$cadena .= "</thead><tbody>";	
+			} 
 				$tr ="";
 				$cadena .= "<tr class='".$tr."'>";
-				$cadena .= "<td>".$row['Nombre']."</td>";
-				$cadena .= "<td>".$row['ApPaterno']."</td>";
-				$cadena .= "<td>".$row['ApMaterno']."</td>";
-				$cadena .= "<td>".$row['Nacimiento']."</td>";
-				$cadena .= "<td>".$row['Defuncion']."</td>";
-                $cadena .= "<td>".$row['Curp']."</td>";
+				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Nombre']))."</td>";
+				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Domicilio']))."</td>";
+				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Colonia']))."</td>";
+                $cadena .= "<td>".htmlspecialchars(strtoupper($row['Municipio']))."</td>";
+				$cadena .= "<td>".$row['TelParticular'].' '.$row['TelTrabajo'].' '.$row['TelCelular'].' '.$row['TelOtro']."</td>";
+				$cadena .= "<td>".htmlspecialchars(strtoupper($row['Email']))."</td>";
+				$cadena .= "<td>".$row['Server']."<br/>".$row['BD']."<br/>".$row['Tabla']."</td>";
 				$cadena .= "</td>";
 				$cadena .= "</tr>";
 			$i++;			

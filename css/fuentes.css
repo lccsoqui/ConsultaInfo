@@ -1,16 +1,5 @@
 @charset "UTF-8";
 
-@font-face {
-  font-family: "tu-obra-icons";
-  src:url("../fonts/tu-obra-icons.eot");
-  src:url("../fonts/tu-obra-icons.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/tu-obra-icons.ttf") format("truetype"),
-    url("../fonts/tu-obra-icons.svg#tu-obra-icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-
-}
-
 [data-icon]:before {
   font-family: "tu-obra-icons" !important;
   content: attr(data-icon);

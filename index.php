@@ -1,4 +1,5 @@
 <?php
+session_name('pi-login');
 session_start();
 require("sources/msg-file.php");
 if(!empty($_SESSION['id-usuario']) and isset($_SESSION['login']) and $_SESSION['login'] == true){
@@ -10,13 +11,14 @@ if(!empty($_SESSION['id-usuario']) and isset($_SESSION['login']) and $_SESSION['
 <head>
 <meta charset="utf-8">
 <link rel="shortcut icon" href="logo2.ico">
-<title>Consulta Registro Civil</title>
+<title>Consulta Información de Ciudadanos</title>
 <link type="text/css" rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
 <?php 
 include("forms/loging-form.php");
+header('Access-Control-Allow-Origin: *'); 
 ?>
 </body>
 </html>

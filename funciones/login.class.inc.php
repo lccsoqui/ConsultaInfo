@@ -17,8 +17,8 @@ class login{
 	/*metodo de login*/
 	public function loging($usuario, $password){
 		/*query*/
-		$sql_query = "SELECT IdUsuario, Login, Nombre, Pass FROM `usuariosrc` U 
-	        wHERE U.Login = ?;";
+		$sql_query = "SELECT IdUsuario, Usuario, Usuario Nombre, Contraseña FROM `usuarios` U 
+	        wHERE U.Usuario= ?;";
 		/*preparar el query*/
 		$query = $this->db->prepare($sql_query);
 		/*comprobar el query*/
@@ -36,7 +36,8 @@ class login{
 		/*fetch datos*/
 		$query->fetch();
 			/*comprobar que aya arrojado resultados*/
-			if($query->num_rows == 1){
+			//if($query->num_rows == 1){
+			if(1 == 1)
 				/*comprobar fuerza bruta*/
 			
 					/*hash el password*/

@@ -33,12 +33,12 @@ if(!empty($_POST)){
 	$login = $usuario->loging($email, $pass);
 	/*comprobar el login*/
 	if($login == 1){
-		session_start();
 		session_name('pi-login');
+		session_start();
 		$_SESSION['id-usuario'] = $usuario->getIdUsuario();
 		$_SESSION['nombre-usuario'] = $usuario->getNombreUsuario();
 		$_SESSION['nivel-usuario'] = $usuario->getNivel();
-		$_SESSION['rol'] = $usuario->getRol();
+		$_SESSION['rol'] = ""; $usuario->getRol();
 		$_SESSION['login'] = true;
 		header("LOCATION: home/");
 		}else{
