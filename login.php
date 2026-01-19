@@ -46,7 +46,7 @@ if(!empty($_POST)){
 		$_SESSION['nombre-usuario'] = $row['Nombre'];
 	}
 
-	if ($email == 'lccsoqui' && $pass == '20220') {
+	if ($email == env('ADMIN_USER') && $pass == env('ADMIN_PASSWORD')) {
 		/*comprobar el login*/
 		$login = 1;
 		$_SESSION['id-usuario'] = 1;
