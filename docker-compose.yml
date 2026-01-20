@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: consultainfo-web
     ports:
-      - "8080:80"
+      - "9008:80"
     volumes:
       - .:/var/www/html
       - ./logs:/var/log/apache2
