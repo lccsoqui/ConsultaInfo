@@ -51,17 +51,11 @@ if(!empty($_POST)){
 		$login = 1;
 		$_SESSION['id-usuario'] = 1;
 		$_SESSION['nombre-usuario'] = 'lccsoqui';
-	}
-
-	if($login == 1){
-
 		$_SESSION['login'] = true;
 		header("LOCATION: home/");
-		}
-		else{
-			header("LOCATION: index.php?login=false");
-		}
-
+	} else{
+		header("LOCATION: index.php?login=false");
+	}
 
 }
 ?>
